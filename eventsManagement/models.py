@@ -13,7 +13,7 @@ class Eventos(models.Model):
     eventName = models.TextField()
     description = models.TextField()
     ubicacion = models.TextField()
-    timestamp = models.DateTimeField()
+    eventDateTime = models.DateTimeField()
 
     class Meta:
         ordering= ['timestamp']
