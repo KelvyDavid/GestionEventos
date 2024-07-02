@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load 'customs_filter' %}
+{% load 'custom_filters' %}
 
 {% block content %}
 <div class = 'container'>
@@ -53,7 +53,7 @@
             const password1 = document.querySelector('input[name = "password1"]').value;
             const password2 = document.querySelector('input[name = "password2"]').value;
 
-            if (password1!== password2){
+            if (password1 !== password2){
                 event.preventDefault();
                 Swal.fire({
                     icon: 'error',
