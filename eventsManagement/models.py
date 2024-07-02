@@ -16,7 +16,7 @@ class Eventos(models.Model):
     eventDateTime = models.DateTimeField()
 
     class Meta:
-        ordering= ['timestamp']
+        ordering= ['eventDateTime']
 
 class Inscripciones(models.Model):
     user_id = models.ForeignKey(Usuarios, on_delete=models.CASCADE)

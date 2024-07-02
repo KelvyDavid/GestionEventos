@@ -29,8 +29,8 @@ class RegistroView(CreateView):
 
 class LoginView(CreateView):
     form_class = DatosUserCreacionForm
-    template_name = 'registro.html'
-    success_url = reverse_lazy('chat')
+    template_name = 'login.html'
+    success_url = reverse_lazy('gestionEventos')
 
     def form_valid(self, form):
         try:
