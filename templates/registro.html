@@ -4,11 +4,23 @@
 {% block content %}
 <div class = 'container'>
     <div class = 'row justify-content-center'>
-        <div class = 'col-nd-6'>
+        <div class = 'col-md-6'>
+            <div>
+                <img src="{% static 'images/userlogo.jpg' %}"" alt="userlogo" class="userIcon">
+                <h1>CREAR CUENTA DE USUARIO</h1>
+            </div>
             <h2>Bienvenido,</h2>
             <p>Te tomará unos minutos crear la cuenta</p>
-            <form id = 'registerForm' method = 'post'>
+            <form id = 'registerform' method = 'post'>
                 {% csrf_token %}
+                <div class = 'form-group'>
+                    {{form.first_name.label_tag}}
+                    {{form.first_name|add_class:'form-control'}}
+                </div>
+                <div class = 'form-group'>
+                    {{form.last_name.label_tag}}
+                    {{form.last_name|add_class:'form-control'}}
+                </div>
                 <div class = 'form-group'>
                     {{form.email.label_tag}}
                     {{form.email|add_class:'form-control'}}

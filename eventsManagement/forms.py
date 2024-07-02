@@ -10,7 +10,7 @@ class DatosUserCreacionForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = Usuarios
-        fields = ('username', 'email')
+        fields = ('username', 'email', 'first_name', 'last_name')
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

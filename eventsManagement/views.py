@@ -22,7 +22,7 @@ class RegistroView(CreateView):
             return self.form_invalid(form)
         
     def form_invalid(self, form):
-        for error in form.error.values():
+        for error in form.errors.values():
             messages.error(self.request, error)
             return super().form_invalid(form)
         
