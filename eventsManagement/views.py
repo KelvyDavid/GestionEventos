@@ -10,7 +10,7 @@ from eventsManagement.models import Usuarios
 class RegistroView(CreateView):
     form_class = DatosUserCreacionForm
     template_name = 'registro.html'
-    success_url = reverse_lazy('gestionEventos')
+    success_url = reverse_lazy('gestorEventos')
 
     def form_valid(self, form):
         try:
@@ -30,7 +30,7 @@ class RegistroView(CreateView):
 class LoginView(CreateView):
     form_class = DatosUserCreacionForm
     template_name = 'login.html'
-    success_url = reverse_lazy('gestionEventos')
+    success_url = reverse_lazy('gestorEventos')
 
     def form_valid(self, form):
         try:
