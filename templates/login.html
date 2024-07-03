@@ -10,6 +10,7 @@
                </h2>
                <p class="text-center" style="font-size: 14px; line-height: 17px;">Ingrese sus datos de forma correcta</p>
                <form>
+                    {% csrf_token %}
                    <div class="input-group mb-2"><span class="mdi mdi-name"></span>
                        <span class="input-group-text"><i class="fe fe-user"></i></span>
                        <input type="text" id="username" class="form-control" name="username" placeholder="Ingrese nombre de usuario" required=""></div>
@@ -18,19 +19,7 @@
                    <div class="d-grid gap-2"><button type="submit" class="btn btn-lg btn-warning mb-0">Iniciar sesion</button>
                    </div>
                </form>
-        <div class = 'col-nd-6'>
-            <form id = 'loginForm' method = 'get'>
-                {% csrf_token %}
-                <div class = 'form-group'>
-                    {{form.username.label_tag}}
-                    {{form.username|add_class:'form-control'}}
-                </div>
-                <div class = 'form-group'>
-                    {{form.password1.label_tag}}
-                    {{form.password1|add_class:'form-control'}}
-                </div>
-                <button type = 'submit' class = 'btn btn-primary'>Crear Cuenta</button>
-            </form>            
+        <div class = 'col-nd-6'>          
             <p><a href="{% url 'registro' %}">No tienes cuenta? Registrate</a></p>
             <p><a href="#">Recuperar contraseña</a></p>
         </div>
