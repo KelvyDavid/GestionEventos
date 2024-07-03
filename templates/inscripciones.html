@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+</head>
+<body>
+	<h2>Registro de Inscripciones</h2>
+	<div id="contenedor">
+		<form action="insertar.html" method="post">
+			<label for="">Iscripciones:</label><br><br>
+			<input type="text" name="inscripciones"><br>
+
+			<label for="">Usarios:</label><br><br>
+			<select name="usaurios">
+
+
+				while($obj=pg_fetch_object($consulta)){ ?>
+
+					<option value="< echo $obj->usuarios ?>">
+
+                    </option>
+
+			</select>
+			<br>
+			<input type="submit" value="Registrar" id="boton">
+		</form>
+	</div>
+
+</body>
+</html>
