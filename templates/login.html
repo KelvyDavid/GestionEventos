@@ -5,24 +5,45 @@
 <div class = 'container'>
     <div class = 'row justify-content-center'>
         <div class="auth-content">
+            <h2 class="mb-1 text-center" style="color: blue;">Iniciar sesion</h2>
+            <p class="text-center" style="font-size: 14px; line-height: 17px;">Ingrese sus datos de forma correcta</p>
+            <form id = 'loginform' method = 'get'>
+                {% csrf_token %}
+                <div class="form-group">
+                    {{form.username.label_tag}}
+                    {{form.username|add_class:'form-control'}}
+                </div>
 
-               <h2 class="mb-1 text-center" style="color: blue;">Iniciar sesion
-               </h2>
-               <p class="text-center" style="font-size: 14px; line-height: 17px;">Ingrese sus datos de forma correcta</p>
-               <form>
-                    {% csrf_token %}
-                   <div class="input-group mb-2"><span class="mdi mdi-name"></span>
-                       <span class="input-group-text"><i class="fe fe-user"></i></span>
-                       <input type="text" id="username" class="form-control" name="username" placeholder="Ingrese nombre de usuario" required=""></div>
-                   <div class="input-group mb-3"><span class="input-group-text"><i class="fe fe-lock"></i></span>
-                       <input type="password" id="password" class="form-control" name="password" placeholder="Ingrese su contrasena" required=""></div>
-                   <div class="d-grid gap-2"><button type="submit" class="btn btn-lg btn-warning mb-0">Iniciar sesion</button>
-                   </div>
-               </form>
-        <div class = 'col-nd-6'>          
-            <p><a href="{% url 'registro' %}">No tienes cuenta? Registrate</a></p>
-            <p><a href="#">Recuperar contraseña</a></p>
+                <div class="form-group">
+                    {{form.password1.label_tag}}
+                    {{form.password1|add_class:'form-control'}}
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+                </div>
+            </form>
+
+            <div class = 'col-nd-6'>          
+                <p>No tienes cuenta? <a href="{% url 'registro' %}">Registrate</a></p>
+                <p>Olvidaste tu contraseña? <a href="#">Recuperar contraseña</a></p>
+            </div>
         </div>
     </div>
 </div>
+
+{% if messages %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% for message in messages %}
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ message }}',
+            });
+        {% endfor %}
+    });
+</script>
+{% endif %}
+
 {% endblock %}
