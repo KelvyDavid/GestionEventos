@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block titulo %}Lista de eventos{% endblock %}
+{% block contenido %}
+<h2>Listado de eventos</h2>
+    <table class="table table-striped datatable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Cupos</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eventos in eventos %}
+                <tr>
+                    <td>{{ eventos.nombre }}</td>
+                    <td>{{ eventos.descripcion }}</td>
+                    <td>{{ eventos.fecha_inicio }}</td>
+                    <td>{{ eventos.fecha_fin }}</td>
+                    <td>{{ eventos.cupos }}</td>
+                    <td>{% if eventos.estado %}Activo{% else %}Inactivo{% endif %}</td>
+                    <td><a href="{% url 'detalle_eventos' eventos.pk %}" class="btn btn-primary btn-sm">Ver detalles</a> </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">No hay eventos disponibles.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

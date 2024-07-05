@@ -1,24 +1,25 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-class Usuarios(AbstractUser):
-    email = models.EmailField(unique=True)
-    groups = models.ManyToManyField(Group, related_name= 'customuser_set')
-    user_permissions = models.ManyToManyField(Permission, related_name= 'customuser_set')
+class Usuario(AbstractUser):
+    ROLES = (
+        ('admin', 'Administrador'),
+        ('normal', 'Usuario Normal'),
+    )
 
-class Eventos(models.Model):
-    user_id = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
-    eventName = models.TextField()
-    description = models.TextField()
-    ubicacion = models.TextField()
-    eventDateTime = models.DateTimeField()
+    rol = models.CharField(max_length=7, choices=ROLES, default='normal')
 
-    class Meta:
-        ordering= ['eventDateTime']
 
-class Inscripciones(models.Model):
-    user_id = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
-    event_id = models.ForeignKey(Eventos, on_delete=models.CASCADE)
-    reg_date = models.DateTimeField(auto_now_add=True)
+class Evento(models.Model):
+    nombre = models.CharField(max_length=150)
+    descripcion = models.TextField()
+    fecha_inicio = models.DateField()
+    fecha_fin = models.DateField()
+    cupos = models.PositiveIntegerField()
+    estado = models.BooleanField(default=True)
+    inscritos = models.ManyToManyField(Usuario, related_name='eventos_inscritos', blank=True)
+
+    def __str__(self):
+        return self.nombre 
