@@ -8,7 +8,8 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Registro de Usuario</h2>
+                    <h2 class="card-title text-center text-primary mb-4 pb-0">REGISTRO DE USUARIO</h2>
+                    <h3 class="text-center fs-6 pb-2">El registro te tomará solo unos minutos</h3>
                     <form method="post">
                         {% csrf_token %}
                         {% for field in form %}
@@ -46,7 +47,7 @@
                 text: "{{ message }}",
                 {% if message.tags != "error" %}
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
                 {% endif %}
             });
 

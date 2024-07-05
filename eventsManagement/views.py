@@ -37,7 +37,7 @@ class InscribirEventoView(LoginRequiredMixin, DetailView):
             messages.success(request, f'Se ha inscrito exitosamente en el evento {evento.nombre}')
         else:
             messages.error(request, 'No se pudo realizar la inscripción. El evento puede estar lleno o ya está inscrito ')
-        return redirect('detalle_evento', pk=evento.pk)
+        return redirect('detalle_eventos', pk=evento.pk)
 
 class CrearEventoView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Evento

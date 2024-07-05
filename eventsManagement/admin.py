@@ -13,6 +13,5 @@ class CustomUserAdmin(UserAdmin):
         (None, {'fields': ('rol',)}),
     )
 
-
 admin.site.register(Usuario, CustomUserAdmin)
 admin.site.register(Evento)
