@@ -13,7 +13,7 @@ class Usuario(AbstractUser):
 
 
 class Evento(models.Model):
-    nombre = models.CharField(max_length=150)
+    nombre_evento = models.CharField(max_length=150)
     descripcion = models.TextField()
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
