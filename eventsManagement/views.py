@@ -13,7 +13,7 @@ from eventsManagement.models import Evento
 # Create your views here.
 class ListaEventosView(LoginRequiredMixin, ListView):
     model = Evento
-    template_name = 'eventos/lista_eventos.html'
+    template_name = 'eventos/tabla_eventos.html'
 
     context_object_name = 'eventos'
 
@@ -25,7 +25,7 @@ class ListaEventosView(LoginRequiredMixin, ListView):
 
 class DetalleEventoView(LoginRequiredMixin, DetailView):
     model = Evento
-    template_name = 'eventos/detalle_evento.html'
+    template_name = 'eventos/detalle_eventos.html'
     context_object_name = 'evento'
 
 
@@ -45,7 +45,7 @@ class InscribirEventoView(LoginRequiredMixin, DetailView):
 class CrearEventoView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Evento
     form_class = EventoForm
-    template_name = 'eventos/eventos_form.html'
+    template_name = 'eventos/formulario_eventos.html'
     success_url = reverse_lazy('lista_eventos')
 
     def test_func(self):
@@ -58,7 +58,7 @@ class CrearEventoView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 class MisEventosView(LoginRequiredMixin, ListView):
     model = Evento
-    template_name = 'eventos/lista_eventos.html'
+    template_name = 'eventos/tabla_eventos.html'
     context_object_name = 'eventos'
 
     def get_queryset(self):
