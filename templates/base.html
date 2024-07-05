@@ -24,14 +24,14 @@
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_cursos' %}">Cursos</a>
+                        <a class="nav-link" href="{% url 'lista_eventos' %}">Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'mis_cursos' %}">Mis Cursos</a>
+                        <a class="nav-link" href="{% url 'mis_eventos' %}">Mis Eventos</a>
                     </li>
                     {% if user.rol == 'admin' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'crear_cursos' %}">Crear Cursos</a>
+                            <a class="nav-link" href="{% url 'crear_eventos' %}">Crear Eventos</a>
                         </li>
                      {% endif %}
                      <li class="nav-item">

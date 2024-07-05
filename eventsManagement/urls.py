@@ -6,7 +6,7 @@ from .views import (
 )
 
 urlpatterns = [
-    path('', ListaEventosView.as_view(), name='lista_evento'),
+    path('', ListaEventosView.as_view(), name='lista_eventos'),
     path('registro/', RegistroUsuarioView.as_view(), name='registro'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),

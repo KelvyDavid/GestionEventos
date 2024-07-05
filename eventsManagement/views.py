@@ -22,12 +22,10 @@ class ListaEventosView(LoginRequiredMixin, ListView):
             return Evento.objects.all()
         return Evento.objects.filter(estado=True)
 
-
 class DetalleEventoView(LoginRequiredMixin, DetailView):
     model = Evento
     template_name = 'eventos/detalle_eventos.html'
     context_object_name = 'evento'
-
 
 class InscribirEventoView(LoginRequiredMixin, DetailView):
     model = Evento
@@ -40,7 +38,6 @@ class InscribirEventoView(LoginRequiredMixin, DetailView):
         else:
             messages.error(request, 'No se pudo realizar la inscripción. El evento puede estar lleno o ya está inscrito ')
         return redirect('detalle_evento', pk=evento.pk)
-
 
 class CrearEventoView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Evento
@@ -80,7 +77,6 @@ class CustomLogoutView(View):
         response['Pragma'] = 'no-cache'
         response['Expires'] = '0'
         return response
-
 
 class RegistroUsuarioView(CreateView):
     form_class = RegistroUsuarioForm
