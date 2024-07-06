@@ -32,9 +32,9 @@ class InscribirEventoView(LoginRequiredMixin, DetailView):
 
     def get(self, request, *args, **kwargs):
         evento = self.get_object()
-        if request.user not in evento.inscritos.all() and evento.inscritos.count() < evento.cupos:
+        if request.user not in evento.inscritos.all():
             evento.inscritos.add(request.user)
-            messages.success(request, f'Se ha inscrito exitosamente en el evento {evento.nombre}')
+            messages.success(request, f'Se ha inscrito exitosamente en el evento {evento.nombre_evento}')
         else:
             messages.error(request, 'No se pudo realizar la inscripción. El evento puede estar lleno o ya está inscrito ')
         return redirect('detalle_eventos', pk=evento.pk)

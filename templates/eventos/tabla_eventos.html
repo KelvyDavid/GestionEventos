@@ -5,11 +5,10 @@
     <table class="table table-striped datatable">
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>Eventos</th>
                 <th>Descripción</th>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
-                <th>Cupos</th>
+                <th>Fecha del evento</th>
+                <th>Ubicación</th>
                 <th>Estado</th>
                 <th>Acciones</th>
             </tr>
@@ -17,11 +16,10 @@
         <tbody>
             {% for eventos in eventos %}
                 <tr>
-                    <td>{{ eventos.nombre }}</td>
+                    <td>{{ eventos.nombre_evento }}</td>
                     <td>{{ eventos.descripcion }}</td>
-                    <td>{{ eventos.fecha_inicio }}</td>
-                    <td>{{ eventos.fecha_fin }}</td>
-                    <td>{{ eventos.cupos }}</td>
+                    <td>{{ eventos.fecha_evento }}</td>
+                    <td>{{ eventos.ubicacion }}</td>
                     <td>{% if eventos.estado %}Activo{% else %}Inactivo{% endif %}</td>
                     <td><a href="{% url 'detalle_eventos' eventos.pk %}" class="btn btn-primary btn-sm">Ver detalles</a> </td>
                 </tr>
