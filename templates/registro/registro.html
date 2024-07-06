@@ -8,8 +8,8 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center text-primary mb-4 pb-0">Registro de usuario</h2>
-                    <h3 class="text-center fs-6 pb-1">El registro te tomará solo unos minutos</h3>
+                    <h2 class="card-title text-center text-primary mb-0 pb-2">Registro de usuario</h2>
+                    <h3 class="text-center fs-6 pb-4">El registro te tomará solo unos minutos</h3>
                     <form method="post">
                         {% csrf_token %}
                         {% for field in form %}
@@ -39,21 +39,22 @@
 
 {% block js_extras %}
 <script>
-    {% if messages %}
-        {% for  message in messages %}
-            Swal.fire({
-                icon: '{% if message.tags == "error" %}error{% else %}success{% endif %}',
-                title: '{% if message.tags == "error" %}Error{% else %}Éxito{% endif %}',
-                text: "{{ message }}",
-                {% if message.tags != "error" %}
-                    showConfirmButton: false,
-                    timer: 1500,
-                {% endif %}
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if messages %}
+            {% for  message in messages %}
+                Swal.fire({
+                    icon: '{% if message.tags == "error" %}error{% else %}success{% endif %}',
+                    title: '{% if message.tags == "error" %}Error{% else %}Éxito{% endif %}',
+                    text: "{{ message }}",
+                    {% if message.tags != "error" %}
+                        showConfirmButton: false,
+                        timer: 1500,
+                    {% endif %}
+                });
+
+            {% endfor %}
+        {% endif %}
             });
-
-        {% endfor %}
-    {% endif %}
-
 </script>
 
 {% endblock %}

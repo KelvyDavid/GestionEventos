@@ -30,12 +30,14 @@
 
 {% block js_extras %}
 <script>
-    {% if form.errors %}
-        Swal.fire({
-          title: "Error de inicio de sesión",
-          text: "Usuario o contraseña incorrecta, ingrese nuevamente",
-          icon: "error"
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if form.errors %}
+            Swal.fire({
+            title: "Error de inicio de sesión",
+            text: "Usuario o contraseña incorrecta, ingrese nuevamente",
+            icon: "error"
+            });
+        {% endif %}
         });
-    {% endif %}
 </script>
 {% endblock %}
