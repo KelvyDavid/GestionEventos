@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-#import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.gis',
 
     # App propias
     'eventsManagement',
@@ -139,6 +137,3 @@ AUTH_USER_MODEL = 'eventsManagement.Usuario'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_REDIRECT_URL = 'lista_eventos'
 LOGIN_URL = 'login'
-
-# Librería para funciones y herramientas GIS
-#os.environ['GDAL_LIBRARY_PATH'] = r'C:\OSGeo4W\bin\gdal309.dll'

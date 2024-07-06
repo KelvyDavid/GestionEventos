@@ -16,8 +16,6 @@ class Evento(models.Model):
     nombre_evento = models.CharField(max_length=150)
     descripcion = models.TextField()
     fecha_evento = models.DateField()
-    #fecha_fin = models.DateField()
-    #cupos = models.PositiveIntegerField()
     ubicacion= models.CharField(max_length=150)
     estado = models.BooleanField(default=True)
     inscritos = models.ManyToManyField(Usuario, related_name='eventos_inscritos', blank=True)

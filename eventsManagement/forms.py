@@ -33,7 +33,7 @@ class RegistroUsuarioForm(UserCreationForm):
 class EventoForm(BootstrapFormMixin, forms.ModelForm):
     class Meta:
         model = Evento
-        fields = ['nombre_evento', 'descripcion', 'fecha_evento', 'ubicación', 'estado']
+        fields = ['nombre_evento', 'descripcion', 'fecha_evento', 'ubicacion', 'estado']
 
         widgets = {
             'fecha_evento': forms.DateInput(attrs={'type': 'date'}),
