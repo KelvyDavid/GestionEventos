@@ -14,7 +14,7 @@ class BootstrapFormMixin:
                 field.widget.attrs['class'] = 'form-control'
 
 class RegistroUsuarioForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(required=True, label='Correo electrónico')
     first_name = forms.CharField(max_length=40, required=True, label='Nombre')
     last_name = forms.CharField(max_length=40, required=True, label='Apellido')
 
@@ -25,7 +25,7 @@ class RegistroUsuarioForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs.update({'class': 'form-control'})
+            self.fields[field].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ingrese un {}'.format((self.fields[field].label)).capitalize()})
         self.fields['username'].label = 'Nombre de usuario'
         self.fields['password1'].label = 'Contraseña'
         self.fields['password2'].label = 'Confirmar contraseña'
