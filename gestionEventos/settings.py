@@ -135,5 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'eventsManagement.Usuario'
 
 LOGOUT_REDIRECT_URL = 'login'
-LOGIN_REDIRECT_URL = 'lista_eventos'
+LOGIN_REDIRECT_URL = 'tabla_eventos'
 LOGIN_URL = 'login'
