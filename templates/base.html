@@ -40,9 +40,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'lista_eventos' %}">Eventos</a>
                             </li>
+                            <!-- hacer enlace a mis_eventos solo si es usuario normal -->
+                            {% if user.rol == 'normal' %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'mis_eventos' %}">Mis Eventos</a>
                             </li>
+                            {% endif %}
+                            <!-- hacer enlace a crear_eventos solo si es usuario admin -->
                             {% if user.rol == 'admin' %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'crear_eventos' %}">Crear Eventos</a>

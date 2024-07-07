@@ -7,6 +7,7 @@
         <div class="card mt-5">
             <div class="card-body">
                 <h2 class="card-title text-center text-primary mb-4">Iniciar Sesión</h2>
+                <!-- Formulario para iniciar sesión -->
                 <form class="p-4" method="post">
                     {% csrf_token %}
                     <div class="mb-3">
@@ -28,6 +29,8 @@
 </div>
 {% endblock %}
 
+<!-- scripts -->
+ <!-- Script para mostrar el error cuando se inicia sesión con credenciales incorrectas -->  
 {% block js_extras %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {

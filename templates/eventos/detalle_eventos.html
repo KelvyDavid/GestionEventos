@@ -8,9 +8,11 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><strong>Fecha del evento: </strong>{{ evento.fecha_evento }}</li>
             <li class="list-group-item"><strong>Ubicación: </strong>{{ evento.ubicacion }}</li>
+            <li class="list-group-item"><strong>Cupos: </strong>{{ evento.cupos }}</li>
             <li class="list-group-item"><strong>Estado: </strong>{% if evento.estado %}Activo{% else %}Inactivo{% endif %}</li>
         </ul>
 
+        <!-- Botón para inscribirse en el evento -->
         {% if user.rol == 'normal' and evento.estado %}
             {% if user in evento.inscritos.all %}
                 <p class="mt-3 text-success">Ya estás inscrito en este evento.</p>
@@ -19,22 +21,28 @@
             {% endif %}
         {% endif %}
 
+        <!-- Tabla de usuarios inscritos -->
         {% if user.rol == 'admin' %}
-            <h3 class="mt-4>">Listado de usuarios inscritos en el evento</h3>
+            <h3 class="mt-4>">Listado de usuarios inscritos</h3>
             <table class="table table-striped datatable">
+                <!-- Encabezado de la tabla -->
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Email</th>
+                        <th>Fecha de inscripción</th>
                     </tr>
                 </thead>
+
+                <!-- Cuerpo de la tabla -->
                 <tbody>
-                    {% for usuario in evento.inscritos.all %}
+                    {% for inscripcion in evento.inscripciones.all %}
                         <tr>
-                            <td>{{ usuario.first_name }}</td>
-                            <td>{{ usuario.last_name }}</td>
-                            <td>{{ usuario.email }}</td>
+                            <td>{{ inscripcion.usuario.first_name }}</td>
+                            <td>{{ inscripcion.usuario.last_name }}</td>
+                            <td>{{ inscripcion.usuario.email }}</td>
+                            <td>{{ inscripcion.fecha_inscripcion }}</td>
                         </tr>
                     {% empty %}
                         <tr>

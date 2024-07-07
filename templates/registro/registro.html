@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <h2 class="card-title text-center text-primary mb-0 pb-2">Registro de usuario</h2>
                     <h3 class="text-center fs-6 pb-4">El registro te tomará solo unos minutos</h3>
+                    <!-- Formulario para registrar usuario -->
                     <form class= 'p-4 'method="post">
                         {% csrf_token %}
                         {% for field in form %}
@@ -37,6 +38,7 @@
 
 {% endblock %}
 
+<!-- scripts -->
 {% block js_extras %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {

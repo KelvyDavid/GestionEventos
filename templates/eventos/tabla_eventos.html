@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block titulo %}Lista de eventos{% endblock %}
 {% block contenido %}
-<h2>Listado de eventos</h2>
+
+<h2>Lista de eventos</h2>
     <table class="table table-striped datatable">
+        <!-- Encabezado de la tabla -->
         <thead>
             <tr>
                 <th>Eventos</th>
@@ -13,7 +15,10 @@
                 <th>Acciones</th>
             </tr>
         </thead>
+
+        <!-- Cuerpo de la tabla -->
         <tbody>
+            <!-- Cada evento se representa como una fila -->
             {% for eventos in eventos %}
                 <tr>
                     <td>{{ eventos.nombre_evento }}</td>
@@ -21,6 +26,7 @@
                     <td>{{ eventos.fecha_evento }}</td>
                     <td>{{ eventos.ubicacion }}</td>
                     <td>{% if eventos.estado %}Activo{% else %}Inactivo{% endif %}</td>
+                    <!-- Botón para ver los detalles del evento -->
                     <td><a href="{% url 'detalle_eventos' eventos.pk %}" class="btn btn-primary btn-sm">Ver detalles</a> </td>
                 </tr>
             {% empty %}
